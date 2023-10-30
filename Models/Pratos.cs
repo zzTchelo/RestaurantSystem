@@ -23,7 +23,7 @@ namespace EdTrabahoParcial2.Models
             this.IdRestaurant = 0;
             this.Rating = 0;
             this.Valor = 0;
-            this.Ingredientes = new List<string>().ToArray();
+            this.ingredientes = new List<string>();
         }
         public Pratos(string nome, int idCategory, int idRestaurant, int rating, double valor, List<string> ingredientes)
         {
@@ -32,14 +32,14 @@ namespace EdTrabahoParcial2.Models
             this.IdRestaurant = idRestaurant;
             this.Rating = rating;
             this.Valor = valor;
-            this.Ingredientes = ingredientes.ToArray();
+            this.ingredientes= this.ingredientes = new List<string>(ingredientes);
         }
 
         public string Nome { get => nome; set => nome = value; }
         public int IdCategory { get => idCategory; set => idCategory = value; }
         public int IdRestaurant { get => idRestaurant; set => idRestaurant = value; }
         public double Valor { get => valor; set => valor = value; }
-        public string[] Ingredientes { get; }
         public int Rating { get => rating; set => rating = value; }
+        public List<string> Ingredientes { get => ingredientes; set => ingredientes = value; }
     }
 }
