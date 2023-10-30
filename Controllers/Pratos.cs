@@ -36,6 +36,18 @@ namespace EdTrabahoParcial2.Controllers
                     2, "Porção de churrasco completo", 3, 3, 5, 47.0, ingredientesChurrasco
                 );
             pratos.Add(pratoChurrasco);
+
+            List<string> ingredientesBolinhoArroz = new List<string>();
+            ingredientesBolinhoArroz.Add("Arroz");
+            ingredientesBolinhoArroz.Add("Leite");
+            ingredientesBolinhoArroz.Add("Farinha de Trigo");
+            ingredientesBolinhoArroz.Add("Ovo");
+            ingredientesBolinhoArroz.Add("Queijo");
+            ingredientesBolinhoArroz.Add("Temperos verdes");
+            Models.Pratos pratoBolinhoArroz = new Models.Pratos(
+                    3, "Bolinho de Arroz", 2, 1, 4, 15.0, ingredientesBolinhoArroz
+                );
+            pratos.Add(pratoBolinhoArroz);
         }
 
         public List<Models.Pratos> getAllPratos()

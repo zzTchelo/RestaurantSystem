@@ -123,7 +123,7 @@ namespace EdTrabahoParcial2
                                                     Console.WriteLine($"Você escolheu o restaurante: {restaurantSelecionado.Nome}");
                                                     Console.WriteLine("Pratos disponíveis: ");
                                                     Console.WriteLine();
-                                                    controllerPrato.getAllPratos().ForEach(pratos =>
+                                                    pratosRestaurantes.ForEach(pratos =>
                                                     {
                                                         Console.WriteLine($"{pratos.Id} - {pratos.Nome}, R$ {pratos.Valor:N2}, Rating: {pratos.Rating} estrelas");
                                                         Console.WriteLine($"Ingredientes: {string.Join(", ", pratos.Ingredientes)}");
@@ -167,7 +167,8 @@ namespace EdTrabahoParcial2
                             }
                             break;
                     }
-                    ClearScreen();
+                    // Ver melhor forma de clocar o clearscreen
+                    Console.Clear();
                 }
                 catch (FormatException)
                 {
