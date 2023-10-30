@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EdTrabahoParcial2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace EdTrabahoParcial2.Controllers
 {
-    internal class Restaurante
+    internal class Restaurantes
     {
         private List<Models.Restaurantes> restaurantes;
-        public Restaurante() {
+        public Restaurantes() {
             this.restaurantes = new List<Models.Restaurantes>();
             // Add Restaurante Chinês
             Models.Restaurantes restauranteChines = new Models.Restaurantes("Avenida Centro, 123", "Restaurante Chinês Genérico", 1, 2, 4);
@@ -33,17 +34,36 @@ namespace EdTrabahoParcial2.Controllers
                     restaurantes.Add(restaurante);
                 }
             }
+            restaurantes.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
             return restaurantes;
         }
 
-        public void removeRestaurantById(int id)
+        public List<int> getAllIdRestaurantByCategory(int category)
         {
+            List<int> restaurantes = new List<int>();
 
+            foreach (var restaurante in this.restaurantes)
+            {
+                if (restaurante.IdCategoria == category)
+                {
+                    restaurantes.Add(restaurante.Id);
+                }
+            }
+            return restaurantes;
         }
 
-        public void addRestaurant(Models.Restaurantes restaurante)
+        public void removeRestaurantById(int restauranteId)
         {
+            Models.Restaurantes restaurantToRemove = this.restaurantes.FirstOrDefault(restaurantes => restaurantes.Id == restauranteId);
+            if (restaurantToRemove != null)
+            {
+                this.restaurantes.Remove(restaurantToRemove);
+            }
+        }
 
+        public void addRestaurant(Models.Restaurantes novoRestaurante)
+        {
+            this.restaurantes.Add(novoRestaurante);
         }
 
     }

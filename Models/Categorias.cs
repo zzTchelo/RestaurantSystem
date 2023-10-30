@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace EdTrabahoParcial2.Models
 {
-    internal class Categoria
+    internal class Categorias
     {
         private int id;
         private string nome;
         
-        public Categoria()
+        public Categorias()
         {
             this.id = 0;
             this.nome = string.Empty;
         }
 
-        public Categoria(int id, string name)
+        public Categorias(int id, string name)
         {
             this.id = id;
             this.nome = name;

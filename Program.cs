@@ -10,14 +10,23 @@ namespace EdTrabahoParcial2
     {
         public static void Main(string[] args)
         {
+            Controllers.Pratos controllerPrato = new Controllers.Pratos();
+
+            controllerPrato.getAllPratos().ForEach(p =>
+            {
+                Console.WriteLine(p.Nome);
+                Console.WriteLine($"R$ {p.Valor:N2}");
+                Console.WriteLine($"Ingredientes: {string.Join(", ", p.Ingredientes)}");
+            });
+
+            Console.ReadKey();
+
             Controllers.Categoria controllerCategoria = new Controllers.Categoria();
-            Controllers.Restaurante controllerRestaurante = new Controllers.Restaurante();
+            Controllers.Restaurantes controllerRestaurante = new Controllers.Restaurantes();
             while (true)
             {
                 // Ordenando Categorias
-                List<Models.Categoria> categorias = controllerCategoria.getAllCategories();
-                categorias.Sort((categoria1, categoria2) => categoria1.Id.CompareTo(categoria2.Id));
-
+                List<Models.Categorias> categorias = controllerCategoria.getAllCategories();
                 Console.WriteLine("##############################################");
                 Console.WriteLine("    Selecione uma das categorias a seguir:");
                 Console.WriteLine("##############################################");
@@ -42,7 +51,7 @@ namespace EdTrabahoParcial2
                             break;
 
                         case 99:
-                            Models.Categoria categoria = new Models.Categoria();
+                            Models.Categorias categoria = new Models.Categorias();
                             categoria.Id = Functions.Ordenacao.ProximoIDDisponivel(controllerCategoria.getAllCategoryIds());
                             Console.Write("Digite o nome da Categoria: ");
                             categoria.Nome = Functions.Formatacao.CapitalizeFirstLetter(Console.ReadLine());
@@ -51,22 +60,20 @@ namespace EdTrabahoParcial2
 
                         case 98:
                             Console.Write("Digite o ID da Categoria a ser excluída: ");
-                            int id = int.Parse(Console.ReadLine());
-                            controllerCategoria.removeCategoryById(id);
+                            int idCategoria = int.Parse(Console.ReadLine());
+                            controllerCategoria.removeCategoryById(idCategoria);
                             break;
 
                         default:
                             // Verifica se o número inserido pelo usuário corresponde a um ID de categoria.
-                            Models.Categoria categoriaSelecionada = categorias.FirstOrDefault(categoria => categoria.Id == opcaoCategoria);
+                            Models.Categorias categoriaSelecionada = categorias.FirstOrDefault(categoria => categoria.Id == opcaoCategoria);
                             if (categoriaSelecionada != null)
                             {
-                                //Filtra restaurantes pela Categoria/ Ordena Restaurantes 
-                                List<Models.Restaurantes> restaurantes = controllerRestaurante.getRestaurantByCategory(categoriaSelecionada.Id);
-                                restaurantes.Sort((restaurante1, restaurante2) => restaurante1.Id.CompareTo(restaurante2.Id));
-
                                 bool isRunningRestaurantPart = true;
                                 while (isRunningRestaurantPart)
                                 {
+                                    //Filtra restaurantes pela Categoria/ Ordena Restaurantes 
+                                    List<Models.Restaurantes> restaurantes = controllerRestaurante.getRestaurantByCategory(categoriaSelecionada.Id);
                                     Console.Clear();
                                     Console.WriteLine($"Você escolheu a categoria: {categoriaSelecionada.Nome}");
                                     Console.WriteLine("Restaurantes disponíveis: ");
@@ -89,11 +96,30 @@ namespace EdTrabahoParcial2
                                             break;
 
                                         case 99:
-                                            // Add Codigo
+                                            Models.Restaurantes restaurante = new Models.Restaurantes();
+                                            restaurante.IdCategoria = categoriaSelecionada.Id;
+                                            restaurante.Id = Functions.Ordenacao.ProximoIDDisponivel(controllerRestaurante.getAllIdRestaurantByCategory(categoriaSelecionada.Id));
+                                            Console.Write("Digite o nome do Restaurante: ");
+                                            restaurante.Nome = Console.ReadLine();
+                                            Console.Write("Digite o Endereço do Restaurante: ");
+                                            restaurante.Endereco = Console.ReadLine();
+                                            Console.Write("Avaliação do Restaurante (1 a 5): ");
+                                            restaurante.Rating = int.Parse(Console.ReadLine());
+                                            if (restaurante.Rating > 5 || restaurante.Rating < 1)
+                                            {
+                                                Console.WriteLine("Digite uma avaliação válida!");
+                                                break;
+                                            }
+                                            controllerRestaurante.addRestaurant(restaurante);
                                             break;
 
                                         case 98:
-                                            // Add Codigo
+                                            Console.Write("Digite o ID do Restaurante a ser excluída: ");
+                                            int idRestaurante = int.Parse(Console.ReadLine());
+                                            controllerRestaurante.removeRestaurantById(idRestaurante);
+                                            break;
+                                        default:
+                                            // Pratos
                                             break;
                                     }    
                                 }

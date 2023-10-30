@@ -9,25 +9,26 @@ namespace EdTrabahoParcial2.Controllers
 {
     internal class Categoria
     {
-        private List<Models.Categoria> categorias;
+        private List<Models.Categorias> categorias;
 
         public Categoria()
         {
-            this.categorias = new List<Models.Categoria>();
+            this.categorias = new List<Models.Categorias>();
             // Dor no coração por fazer isso
             // Add Catregoria padrão (Thailandesa)
-            Models.Categoria thailandesa = new Models.Categoria(1, "Thailandesa");
+            Models.Categorias thailandesa = new Models.Categorias(1, "Thailandesa");
             this.addCategory(thailandesa);
             // Add Catregoria padrão (Chinesa)
-            Models.Categoria chinesa = new Models.Categoria(2, "Chinesa");
+            Models.Categorias chinesa = new Models.Categorias(2, "Chinesa");
             this.addCategory(chinesa);
             // Add Catregoria padrão (Brasileira)
-            Models.Categoria brasileira = new Models.Categoria(3, "Brasileira");
+            Models.Categorias brasileira = new Models.Categorias(3, "Brasileira");
             this.addCategory(brasileira);
         }
 
-        public List<Models.Categoria> getAllCategories()
+        public List<Models.Categorias> getAllCategories()
         {
+            this.categorias.Sort((categoria1, categoria2) => categoria1.Id.CompareTo(categoria2.Id));
             return this.categorias;
         }
 
@@ -41,19 +42,17 @@ namespace EdTrabahoParcial2.Controllers
             return categoryIds;
         }
 
-        public void addCategory(Models.Categoria novaCategoria)
+        public void addCategory(Models.Categorias novaCategoria)
         {
-            Models.Categoria categoria = new Models.Categoria();
-            categoria.Id = novaCategoria.Id;
-            categoria.Nome = novaCategoria.Nome;
-            this.categorias.Add(categoria);
+            //Models.Categoria categoria = new Models.Categoria();
+            //categoria.Id = novaCategoria.Id;
+            //categoria.Nome = novaCategoria.Nome;
+            this.categorias.Add(novaCategoria);
         }
 
         public void removeCategoryById(int categoryId)
         {
-
-            Models.Categoria categoriaToRemove = this.categorias.FirstOrDefault(categoria => categoria.Id == categoryId);
-
+            Models.Categorias categoriaToRemove = this.categorias.FirstOrDefault(categoria => categoria.Id == categoryId);
             if (categoriaToRemove != null)
             {
                 this.categorias.Remove(categoriaToRemove);
