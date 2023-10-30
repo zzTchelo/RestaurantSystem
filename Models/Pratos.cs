@@ -11,6 +11,7 @@ namespace EdTrabahoParcial2.Models
 {
     internal class Pratos
     {
+        private int id;
         private string nome;
         private int idCategory;
         private int idRestaurant;
@@ -18,6 +19,7 @@ namespace EdTrabahoParcial2.Models
         private List<string> ingredientes;
         private int rating;
         public Pratos() {
+            this.id = 0;
             this.Nome = string.Empty;
             this.IdCategory = 0;
             this.IdRestaurant = 0;
@@ -25,8 +27,9 @@ namespace EdTrabahoParcial2.Models
             this.Valor = 0;
             this.ingredientes = new List<string>();
         }
-        public Pratos(string nome, int idCategory, int idRestaurant, int rating, double valor, List<string> ingredientes)
+        public Pratos(int id, string nome, int idCategory, int idRestaurant, int rating, double valor, List<string> ingredientes)
         {
+            this.id = id;
             this.Nome = nome;
             this.IdCategory = idCategory;
             this.IdRestaurant = idRestaurant;
@@ -35,6 +38,7 @@ namespace EdTrabahoParcial2.Models
             this.ingredientes= this.ingredientes = new List<string>(ingredientes);
         }
 
+        public int Id { get => id; set => id = value; }
         public string Nome { get => nome; set => nome = value; }
         public int IdCategory { get => idCategory; set => idCategory = value; }
         public int IdRestaurant { get => idRestaurant; set => idRestaurant = value; }

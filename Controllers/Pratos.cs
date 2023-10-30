@@ -20,7 +20,7 @@ namespace EdTrabahoParcial2.Controllers
             ingredientesFeijoada.Add("Louro");
             ingredientesFeijoada.Add("Alho");
             Models.Pratos pratoFeijoada = new Models.Pratos(
-                    "Feijoada", 3, 3, 3, 30.0, ingredientesFeijoada
+                    1, "Feijoada", 3, 3, 3, 30.0, ingredientesFeijoada
                 );
             pratos.Add(pratoFeijoada);
 
@@ -32,7 +32,7 @@ namespace EdTrabahoParcial2.Controllers
             ingredientesChurrasco.Add("Cebola");
             ingredientesChurrasco.Add("Queijo Coalho");
             Models.Pratos pratoChurrasco = new Models.Pratos(
-                    "Porção de churrasco completo", 3, 3, 5, 47.0, ingredientesChurrasco
+                    2, "Porção de churrasco completo", 3, 3, 5, 47.0, ingredientesChurrasco
                 );
             pratos.Add(pratoChurrasco);
         }
@@ -42,6 +42,10 @@ namespace EdTrabahoParcial2.Controllers
             return this.pratos;
         }
 
+        public List<Models.Pratos> getPratosByRestaurantByCategory(int idRestaurant, int idCategory)
+        {
+            return this.pratos;
+        }
 
     }
 }

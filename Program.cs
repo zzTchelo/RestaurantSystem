@@ -11,16 +11,6 @@ namespace EdTrabahoParcial2
         public static void Main(string[] args)
         {
             Controllers.Pratos controllerPrato = new Controllers.Pratos();
-
-            controllerPrato.getAllPratos().ForEach(p =>
-            {
-                Console.WriteLine(p.Nome);
-                Console.WriteLine($"R$ {p.Valor:N2}");
-                Console.WriteLine($"Ingredientes: {string.Join(", ", p.Ingredientes)}");
-            });
-
-            Console.ReadKey();
-
             Controllers.Categoria controllerCategoria = new Controllers.Categoria();
             Controllers.Restaurantes controllerRestaurante = new Controllers.Restaurantes();
             while (true)
@@ -79,7 +69,7 @@ namespace EdTrabahoParcial2
                                     Console.WriteLine("Restaurantes disponíveis: ");
                                     Console.WriteLine();
                                     restaurantes.ForEach(restaurante =>
-                                        Console.WriteLine($"{restaurante.Id} - {restaurante.Nome}, Rating: {restaurante.Rating}")
+                                        Console.WriteLine($"{restaurante.Id} - {restaurante.Nome}, Rating: {restaurante.Rating} estrelas")
                                     );
                                     Console.WriteLine("");
                                     Console.WriteLine("98 - Remover Restaurante existente");
@@ -118,10 +108,57 @@ namespace EdTrabahoParcial2
                                             int idRestaurante = int.Parse(Console.ReadLine());
                                             controllerRestaurante.removeRestaurantById(idRestaurante);
                                             break;
+
                                         default:
                                             // Pratos
+                                            Models.Restaurantes restaurantSelecionado = restaurantes.FirstOrDefault(restaurante => restaurante.Id == opcaoRestaurante);
+                                            if (categoriaSelecionada != null)
+                                            {
+                                                bool isRunningPratosPart = true;
+                                                while (isRunningPratosPart)
+                                                {
+                                                    List<Models.Pratos> pratosRestaurantes =
+                                                    controllerPrato.getPratosByRestaurantByCategory(restaurantSelecionado.Id, restaurantSelecionado.IdCategoria);
+                                                    Console.Clear();
+                                                    Console.WriteLine($"Você escolheu o restaurante: {restaurantSelecionado.Nome}");
+                                                    Console.WriteLine("Pratos disponíveis: ");
+                                                    Console.WriteLine();
+                                                    controllerPrato.getAllPratos().ForEach(pratos =>
+                                                    {
+                                                        Console.WriteLine($"{pratos.Id} - {pratos.Nome}, R$ {pratos.Valor:N2}, Rating: {pratos.Rating} estrelas");
+                                                        Console.WriteLine($"Ingredientes: {string.Join(", ", pratos.Ingredientes)}");
+                                                        Console.WriteLine();
+                                                    });
+                                                    Console.WriteLine("98 - Remover prato existente");
+                                                    Console.WriteLine("99 - Adicionar novo prato");
+                                                    Console.WriteLine("00 - Voltar");
+                                                    Console.WriteLine("");
+                                                    Console.Write("Opção: ");
+
+                                                    int opcaoPrato = int.Parse(Console.ReadLine());
+                                                    switch (opcaoPrato)
+                                                    {
+                                                        case 0:
+                                                            isRunningPratosPart = false;
+                                                            break;
+
+                                                        case 99:
+                                                            Console.WriteLine("Em desenvolvimento...");
+                                                            break;
+
+                                                        case 98:
+                                                            Console.WriteLine("Em desenvolvimento...");
+                                                            break;
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Opção inválida. Por favor, digite um valor válido.");
+                                            } 
                                             break;
-                                    }    
+                                    }
+                                    ClearScreen();
                                 }
                             }
                             else
