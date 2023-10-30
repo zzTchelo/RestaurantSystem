@@ -27,7 +27,7 @@ namespace EdTrabahoParcial2.Controllers
         {
             List<Models.Restaurantes> restaurantes = new List<Models.Restaurantes>();
 
-            foreach (var restaurante in this.restaurantes)
+            foreach (Models.Restaurantes restaurante in this.restaurantes)
             {
                 if (restaurante.IdCategoria == category)
                 {

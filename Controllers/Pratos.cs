@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EdTrabahoParcial2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,8 +45,16 @@ namespace EdTrabahoParcial2.Controllers
 
         public List<Models.Pratos> getPratosByRestaurantByCategory(int idRestaurant, int idCategory)
         {
-            return this.pratos;
+            List<Models.Pratos> pratos = new List<Models.Pratos>();
+            foreach (Models.Pratos prato in this.pratos)
+            {
+                if (prato.IdRestaurant == idRestaurant && prato.IdCategory == idCategory)
+                {
+                    pratos.Add(prato);
+                }
+            }
+            pratos.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
+            return pratos;
         }
-
     }
 }
