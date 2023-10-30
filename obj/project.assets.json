@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Jmarc\\.nuget\\packages\\": {},
+    "C:\\Users\\JMarcelo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Estudos\\Fatec\\ED\\EdTrabahoParcial2\\EdTrabahoParcial2.csproj",
+      "projectUniqueName": "C:\\Estudos\\Fatec\\EstruturaDados\\RestaurantSystem\\EdTrabahoParcial2.csproj",
       "projectName": "EdTrabahoParcial2",
-      "projectPath": "D:\\Estudos\\Fatec\\ED\\EdTrabahoParcial2\\EdTrabahoParcial2.csproj",
-      "packagesPath": "C:\\Users\\Jmarc\\.nuget\\packages\\",
-      "outputPath": "D:\\Estudos\\Fatec\\ED\\EdTrabahoParcial2\\obj\\",
+      "projectPath": "C:\\Estudos\\Fatec\\EstruturaDados\\RestaurantSystem\\EdTrabahoParcial2.csproj",
+      "packagesPath": "C:\\Users\\JMarcelo\\.nuget\\packages\\",
+      "outputPath": "C:\\Estudos\\Fatec\\EstruturaDados\\RestaurantSystem\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Jmarc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\JMarcelo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -66,7 +66,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

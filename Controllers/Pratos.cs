@@ -50,9 +50,17 @@ namespace EdTrabahoParcial2.Controllers
             pratos.Add(pratoBolinhoArroz);
         }
 
-        public List<Models.Pratos> getAllPratos()
+        public List<int> getAllIdPratosByRestaurantByCategory(int idRestaurant, int idCategory)
         {
-            return this.pratos;
+            List<int> ids = new List<int>();
+            foreach (Models.Pratos prato in this.pratos)
+            {
+                if (prato.IdRestaurant == idRestaurant && prato.IdCategory == idCategory)
+                {
+                    ids.Add(prato.Id);
+                }
+            }
+            return ids;
         }
 
         public List<Models.Pratos> getPratosByRestaurantByCategory(int idRestaurant, int idCategory)
@@ -67,6 +75,20 @@ namespace EdTrabahoParcial2.Controllers
             }
             pratos.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
             return pratos;
+        }
+
+        public void addPrato(Models.Pratos novoPrato)
+        {
+            this.pratos.Add(novoPrato);
+        }
+
+        public void removePrato(int idPrato)
+        {
+            Models.Pratos pratoToRemove = this.pratos.FirstOrDefault(prato => prato.Id == idPrato);
+            if (pratoToRemove != null)
+            {
+                this.pratos.Remove(pratoToRemove);
+            }
         }
     }
 }

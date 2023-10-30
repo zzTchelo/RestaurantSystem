@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -143,11 +144,30 @@ namespace EdTrabahoParcial2
                                                             break;
 
                                                         case 99:
-                                                            Console.WriteLine("Em desenvolvimento...");
+                                                            Models.Pratos prato = new Models.Pratos();
+                                                            prato.Id = Functions.Ordenacao.ProximoIDDisponivel(
+                                                                controllerPrato.getAllIdPratosByRestaurantByCategory(restaurantSelecionado.Id, restaurantSelecionado.IdCategoria));
+                                                            prato.IdRestaurant = restaurantSelecionado.Id;
+                                                            prato.IdCategory = restaurantSelecionado.IdCategoria;
+                                                            Console.Write("Digite o nome do prato: ");
+                                                            prato.Nome = Console.ReadLine();
+                                                            Console.WriteLine("Digite os ingredientes (digite 'XD' para finalizar): ");
+                                                            string ingredientes;
+                                                            do
+                                                            {
+                                                                ingredientes = Console.ReadLine();
+                                                                if (ingredientes != "XD")
+                                                                {
+                                                                    prato.Ingredientes.Add(ingredientes);
+                                                                }
+                                                            } while (ingredientes != "XD");
+                                                            controllerPrato.addPrato(prato);
                                                             break;
 
                                                         case 98:
-                                                            Console.WriteLine("Em desenvolvimento...");
+                                                            Console.Write("Digite o ID do prato que deseja remover: ");
+                                                            int idPrato = int.Parse(Console.ReadLine());
+                                                            controllerPrato.removePrato(idPrato);
                                                             break;
                                                     }
                                                 }
