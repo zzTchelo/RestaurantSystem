@@ -12,3 +12,10 @@ D:\Estudos\Fatec\ED\EdTrabahoParcial2\obj\Debug\net6.0\refint\EdTrabahoParcial2.
 D:\Estudos\Fatec\ED\EdTrabahoParcial2\obj\Debug\net6.0\EdTrabahoParcial2.pdb
 D:\Estudos\Fatec\ED\EdTrabahoParcial2\obj\Debug\net6.0\EdTrabahoParcial2.genruntimeconfig.cache
 D:\Estudos\Fatec\ED\EdTrabahoParcial2\obj\Debug\net6.0\ref\EdTrabahoParcial2.dll
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.AssemblyInfoInputs.cache
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.AssemblyInfo.cs
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.csproj.CoreCompileInputs.cache
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.dll
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\refint\EdTrabahoParcial2.dll
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.pdb

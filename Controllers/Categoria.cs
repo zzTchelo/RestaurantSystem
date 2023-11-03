@@ -58,6 +58,28 @@ namespace EdTrabahoParcial2.Controllers
                 this.categorias.Remove(categoriaToRemove);
             }
         }
-
+        public void RemoveCategoryAndAssociatedItems(int categoryId, Controllers.Restaurantes controllerRestaurant, Controllers.Pratos controllerPratos)
+        {
+            Models.Categorias categoriaToRemove = this.categorias.FirstOrDefault(categoria => categoria.Id == categoryId);
+            if (categoriaToRemove != null)
+            {
+                List<Models.Restaurantes> restaurantsWithCategory = controllerRestaurant.getAllRestaurantByCategory(categoryId);
+                foreach (Models.Restaurantes restaurant in restaurantsWithCategory)
+                {
+                    controllerRestaurant.removeRestaurantById(restaurant.Id);
+                }
+                List<Models.Pratos> pratosWithCategory = controllerPratos.getPratosByCategory(categoryId);
+                foreach (Models.Pratos prato in pratosWithCategory)
+                {
+                    controllerPratos.removePrato(categoryId);
+                }
+                this.categorias.Remove(categoriaToRemove);
+                Console.WriteLine("A categoria foi removida com sucesso, juntamente com restaurantes e pratos associados.");
+            }
+            else
+            {
+                Console.WriteLine("Categoria não encontrada.");
+            }
+        }
     }
 }

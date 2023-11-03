@@ -22,7 +22,6 @@ namespace EdTrabahoParcial2.Controllers
             Models.Restaurantes restauranteBrasileiro = new Models.Restaurantes("Rua dos Santos, 789", "Restaurante Brasileiro Genérico", 3, 3, 5);
             this.restaurantes.Add(restauranteBrasileiro);
         }
-
         public List<Models.Restaurantes> getRestaurantByCategory(int category)
         {
             List<Models.Restaurantes> restaurantes = new List<Models.Restaurantes>();
@@ -37,7 +36,6 @@ namespace EdTrabahoParcial2.Controllers
             restaurantes.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
             return restaurantes;
         }
-
         public List<int> getAllIdRestaurantByCategory(int category)
         {
             List<int> restaurantes = new List<int>();
@@ -51,7 +49,19 @@ namespace EdTrabahoParcial2.Controllers
             }
             return restaurantes;
         }
+        public List<Models.Restaurantes> getAllRestaurantByCategory(int category)
+        {
+            List<Models.Restaurantes> restaurantes = new List<Models.Restaurantes>();
 
+            foreach (var restaurante in this.restaurantes)
+            {
+                if (restaurante.IdCategoria == category)
+                {
+                    restaurantes.Add(restaurante);
+                }
+            }
+            return restaurantes;
+        }
         public void removeRestaurantById(int restauranteId)
         {
             Models.Restaurantes restaurantToRemove = this.restaurantes.FirstOrDefault(restaurantes => restaurantes.Id == restauranteId);
@@ -60,11 +70,9 @@ namespace EdTrabahoParcial2.Controllers
                 this.restaurantes.Remove(restaurantToRemove);
             }
         }
-
         public void addRestaurant(Models.Restaurantes novoRestaurante)
         {
             this.restaurantes.Add(novoRestaurante);
         }
-
     }
 }

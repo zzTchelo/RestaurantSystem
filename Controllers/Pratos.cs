@@ -49,7 +49,6 @@ namespace EdTrabahoParcial2.Controllers
                 );
             pratos.Add(pratoBolinhoArroz);
         }
-
         public List<int> getAllIdPratosByRestaurantByCategory(int idRestaurant, int idCategory)
         {
             List<int> ids = new List<int>();
@@ -62,7 +61,6 @@ namespace EdTrabahoParcial2.Controllers
             }
             return ids;
         }
-
         public List<Models.Pratos> getPratosByRestaurantByCategory(int idRestaurant, int idCategory)
         {
             List<Models.Pratos> pratos = new List<Models.Pratos>();
@@ -76,12 +74,23 @@ namespace EdTrabahoParcial2.Controllers
             pratos.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
             return pratos;
         }
-
+        public List<Models.Pratos> getPratosByCategory(int idCategory)
+        {
+            List<Models.Pratos> pratos = new List<Models.Pratos>();
+            foreach (Models.Pratos prato in this.pratos)
+            {
+                if (prato.IdCategory == idCategory)
+                {
+                    pratos.Add(prato);
+                }
+            }
+            pratos.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
+            return pratos;
+        }
         public void addPrato(Models.Pratos novoPrato)
         {
             this.pratos.Add(novoPrato);
         }
-
         public void removePrato(int idPrato)
         {
             Models.Pratos pratoToRemove = this.pratos.FirstOrDefault(prato => prato.Id == idPrato);
