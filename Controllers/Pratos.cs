@@ -87,6 +87,19 @@ namespace EdTrabahoParcial2.Controllers
             pratos.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
             return pratos;
         }
+        public List<Models.Pratos> getPratosByRestaurant(int idCategory)
+        {
+            List<Models.Pratos> pratos = new List<Models.Pratos>();
+            foreach (Models.Pratos prato in this.pratos)
+            {
+                if (prato.IdCategory == idCategory)
+                {
+                    pratos.Add(prato);
+                }
+            }
+            pratos.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
+            return pratos;
+        }
         public void addPrato(Models.Pratos novoPrato)
         {
             this.pratos.Add(novoPrato);

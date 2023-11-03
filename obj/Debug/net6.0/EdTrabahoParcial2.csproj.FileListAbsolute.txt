@@ -19,3 +19,10 @@ D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.csproj.C
 D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.dll
 D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\refint\EdTrabahoParcial2.dll
 D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.pdb
+D:\Estudos\Fatec\ED\RestaurantSystem\bin\Debug\net6.0\EdTrabahoParcial2.exe
+D:\Estudos\Fatec\ED\RestaurantSystem\bin\Debug\net6.0\EdTrabahoParcial2.deps.json
+D:\Estudos\Fatec\ED\RestaurantSystem\bin\Debug\net6.0\EdTrabahoParcial2.runtimeconfig.json
+D:\Estudos\Fatec\ED\RestaurantSystem\bin\Debug\net6.0\EdTrabahoParcial2.dll
+D:\Estudos\Fatec\ED\RestaurantSystem\bin\Debug\net6.0\EdTrabahoParcial2.pdb
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\EdTrabahoParcial2.genruntimeconfig.cache
+D:\Estudos\Fatec\ED\RestaurantSystem\obj\Debug\net6.0\ref\EdTrabahoParcial2.dll

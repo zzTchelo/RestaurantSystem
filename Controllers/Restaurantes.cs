@@ -74,5 +74,23 @@ namespace EdTrabahoParcial2.Controllers
         {
             this.restaurantes.Add(novoRestaurante);
         }
+        public void RemoveRestaurantAndAssociatedItems(int restaurantID, Controllers.Pratos controllerPratos)   
+        {
+            Models.Restaurantes restaurantToRemove = this.restaurantes.FirstOrDefault(restaurantes => restaurantes.Id == restaurantID);
+            if (restaurantToRemove != null)
+            {
+                List<Models.Pratos> pratosWithCategory = controllerPratos.getPratosByRestaurant(restaurantID);
+                foreach (Models.Pratos prato in pratosWithCategory)
+                {
+                    controllerPratos.removePrato(prato.Id);
+                }
+                this.restaurantes.Remove(restaurantToRemove);
+                Console.WriteLine("O Restaurante foi removido com sucesso, juntamente com os pratos associados.");
+            }
+            else
+            {
+                Console.WriteLine("Restaurante não encontrada.");
+            }
+        }
     }
 }

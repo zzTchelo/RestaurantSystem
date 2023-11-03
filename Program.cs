@@ -52,7 +52,7 @@ namespace EdTrabahoParcial2
                         case 98:
                             Console.Write("Digite o ID da Categoria a ser excluída: ");
                             int idCategoria = int.Parse(Console.ReadLine());
-                            controllerCategoria.removeCategoryById(idCategoria);
+                            controllerCategoria.RemoveCategoryAndAssociatedItems(idCategoria, controllerRestaurante, controllerPrato);
                             break;
 
                         default:
@@ -107,7 +107,7 @@ namespace EdTrabahoParcial2
                                         case 98:
                                             Console.Write("Digite o ID do Restaurante a ser excluída: ");
                                             int idRestaurante = int.Parse(Console.ReadLine());
-                                            controllerRestaurante.removeRestaurantById(idRestaurante);
+                                            controllerRestaurante.RemoveRestaurantAndAssociatedItems(idRestaurante, controllerPrato);
                                             break;
 
                                         default:
