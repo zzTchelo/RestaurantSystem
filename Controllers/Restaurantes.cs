@@ -92,5 +92,22 @@ namespace EdTrabahoParcial2.Controllers
                 Console.WriteLine("Restaurante não encontrada.");
             }
         }
+        public double ratingRestaurantes(List<Models.Pratos> pratos)
+        {
+            int soma = 0;
+            int cont = 0;
+            foreach (Models.Pratos prato in pratos)
+            {
+                soma += prato.Rating;
+                cont++;
+            }
+
+            if (cont == 0)
+            {
+                return 0;
+            }
+                
+            return soma/ cont;
+        }
     }
 }

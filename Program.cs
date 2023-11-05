@@ -52,7 +52,16 @@ namespace EdTrabahoParcial2
                         case 98:
                             Console.Write("Digite o ID da Categoria a ser excluída: ");
                             int idCategoria = int.Parse(Console.ReadLine());
-                            controllerCategoria.RemoveCategoryAndAssociatedItems(idCategoria, controllerRestaurante, controllerPrato);
+                            Console.Write("Dejeja excluir os restaurantes e pratos associados? (S/N)");
+                            string respCategoria = Console.ReadLine().ToUpper();
+                            if (respCategoria.Equals("S"))
+                            {
+                                controllerCategoria.RemoveCategoryAndAssociatedItems(idCategoria, controllerRestaurante, controllerPrato);
+                            }
+                            else
+                            {
+                                controllerCategoria.removeCategoryById(idCategoria);
+                            } 
                             break;
 
                         default:
@@ -70,7 +79,8 @@ namespace EdTrabahoParcial2
                                     Console.WriteLine("Restaurantes disponíveis: ");
                                     Console.WriteLine();
                                     restaurantes.ForEach(restaurante =>
-                                        Console.WriteLine($"{restaurante.Id} - {restaurante.Nome}, Rating: {restaurante.Rating} estrelas")
+                                        Console.WriteLine($"{restaurante.Id} - {restaurante.Nome}, " +
+                                        $"Rating: {controllerRestaurante.ratingRestaurantes(controllerPrato.getPratosByRestaurantByCategory(restaurante.Id, restaurante.IdCategoria))} estrelas")
                                     );
                                     Console.WriteLine("");
                                     Console.WriteLine("98 - Remover Restaurante existente");
@@ -95,19 +105,22 @@ namespace EdTrabahoParcial2
                                             Console.Write("Digite o Endereço do Restaurante: ");
                                             restaurante.Endereco = Console.ReadLine();
                                             Console.Write("Avaliação do Restaurante (1 a 5): ");
-                                            restaurante.Rating = int.Parse(Console.ReadLine());
-                                            if (restaurante.Rating > 5 || restaurante.Rating < 1)
-                                            {
-                                                Console.WriteLine("Digite uma avaliação válida!");
-                                                break;
-                                            }
                                             controllerRestaurante.addRestaurant(restaurante);
                                             break;
 
                                         case 98:
                                             Console.Write("Digite o ID do Restaurante a ser excluída: ");
                                             int idRestaurante = int.Parse(Console.ReadLine());
-                                            controllerRestaurante.RemoveRestaurantAndAssociatedItems(idRestaurante, controllerPrato);
+                                            Console.Write("Deseja excluir os pratos associados? (S/N)");
+                                            string respRestaurante = Console.ReadLine().ToUpper();
+                                            if(respRestaurante.Equals("S"))
+                                            {
+                                                controllerRestaurante.RemoveRestaurantAndAssociatedItems(idRestaurante, controllerPrato);
+                                            }
+                                            else
+                                            {
+                                                controllerRestaurante.removeRestaurantById(idRestaurante);
+                                            }
                                             break;
 
                                         default:
