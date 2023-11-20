@@ -100,6 +100,16 @@ namespace EdTrabahoParcial2.Controllers
             pratos.Sort((compare1, compare2) => compare1.Id.CompareTo(compare2.Id));
             return pratos;
         }
+        public List<Models.Pratos> getPratosOrdenedByRating(int opcaoOrdenacao)
+        {
+            List<Models.Pratos> pratos = this.pratos;
+            if (opcaoOrdenacao == 1)
+                pratos.Sort((prato1, prato2) => prato1.Id.CompareTo(prato2.Id));
+            else if (opcaoOrdenacao == 2)
+                pratos.Sort((prato1, prato2) => prato2.Id.CompareTo(prato1.Id));
+
+            return pratos;
+        }
         public void addPrato(Models.Pratos novoPrato)
         {
             this.pratos.Add(novoPrato);

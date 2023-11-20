@@ -26,6 +26,7 @@ namespace EdTrabahoParcial2
                     Console.WriteLine($"{categoria.Id} - {categoria.Nome}")
                 );
                 Console.WriteLine("");
+                Console.WriteLine("97 - Exibir todos os pratos");
                 Console.WriteLine("98 - Remover Categoria existente");
                 Console.WriteLine("99 - Adicionar nova Categoria");
                 Console.WriteLine("00 - Sair");
@@ -62,6 +63,28 @@ namespace EdTrabahoParcial2
                             {
                                 controllerCategoria.removeCategoryById(idCategoria);
                             } 
+                            break;
+
+                        case 97:
+                            List<Models.Pratos> pratosOrdenados = new List<Models.Pratos>();
+                            Console.WriteLine();
+                            Console.WriteLine("Ordem de exibição (Rating): ");
+                            Console.WriteLine("1 - Crescente");
+                            Console.WriteLine("2 - Decrescente");
+                            Console.Write("Opção: ");
+                            int opcaoOrdenacao = int.Parse(Console.ReadLine());
+                            if (opcaoOrdenacao > 2)
+                            {
+                                Console.WriteLine("Opção Inválida!!!");
+                                Console.ReadKey();
+                                break;
+                            }
+                            Console.WriteLine("");
+                            pratosOrdenados = controllerPrato.getPratosOrdenedByRating(opcaoOrdenacao);
+                            pratosOrdenados.ForEach(prato =>
+                                    Console.WriteLine($"{prato.Id} - {prato.Nome}, Rating: {prato.Rating} Estrelas")
+                                );
+                            Console.ReadKey();
                             break;
 
                         default:
