@@ -12,7 +12,7 @@ This is a console-based application for managing restaurants, dishes, and catego
 ## How to Run
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/Restaurant-Management-Console-App.git
+   git clone https://github.com/your-username/https://github.com/zzTchelo/RestaurantSystem.git
     
 2. Open the solution in Visual Studio or your preferred C# IDE.
 
